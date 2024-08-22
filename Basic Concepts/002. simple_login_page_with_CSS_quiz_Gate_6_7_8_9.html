@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Gate 7</title>
+
+    <!-- Custom Font from Google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+
+    <!-- Font for heading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Jersey+10&family=Noto+Sans+Devanagari:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- code to link css from a separate CSS or cascading stylesheet file -->
+     <!-- <link rel="stylesheet" type="text/css" href="style.css" -->
+</head>
+<!-- CSS Applied in Gate 9 -->
+<style>
+    /* body{
+margin: 0;
+padding: 0;
+} */
+    .wrap {
+
+        /* justify-content: center; */
+        align-items: center;
+        width: 50vw;
+        margin: auto;
+        background: #f1f1f1;
+    }
+
+    .mycontainer {
+        width: 50vw;
+        /* Spacing Properites */
+        height: 500px;
+        padding-top: 80px;
+        margin-bottom: 20px;
+        border-radius: 25px;
+        /* margin: auto; */
+
+        text-align: center;
+        /* Background Properties */
+        background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+
+    .myheading {
+        color: white;
+        font-size: 100px;
+        
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .subheading {
+        color: white;
+        font-size: 25px;
+        font-family: 'Yusei Magic', sans-serif;
+        font-weight: normal;
+    }
+    /* I felt the size of the background image was too small in the tutorial, so I have made it bigger */
+    .mybtn{
+        width: 300px;
+        height: 50px;
+        background-color: brown;
+        border-radius: 10px;
+        color: white;
+
+    }
+</style>
+<!-- The Basic bare bones structre created in Gate 7-8 -->
+
+<body>
+    <div class="wrap"> <!-- It is used to group all the elements -->
+        <div class="mycontainer">
+            <h1 class="myheading">Login Page</h1>
+            <h5 class="subheading">Type your ID and PW</h5>
+        </div>
+
+        <p><b>ID:</b> <input type="text" name="id" id="id"></p>
+
+        <p><b>PW:</b> <input type="text" name="pw" id="pw"></p>
+
+        <button class="mybtn"><b>Login</b></button>
+    </div>
+</body>
+
+</html>
