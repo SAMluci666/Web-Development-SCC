@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Practice Gate 28</title>
+
+    <!-- import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        div.question-box {
+            margin: 10px 0 20px 0;
+        }
+
+        .bad {
+            color: red;
+        }
+    </style>
+    <script>
+        function q1() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/en/global_air/seoul",
+                data: {},
+                success: function (response) {
+                    let dates = response['data']['forecast'];
+                    console.log(dates); // to check if the data is coming through the console
+                    let text_html = '';
+                    $('#index-q1').empty(); // this will empty the list before appending the new data
+                    // what it actually does is it takes a parent element and removes all its children elements
+                    for (let i = 0; i < dates.length; i++) {
+                        let day = dates[i]['day']; // creates an array of days that stores the day of the week (array of strings)
+                        let avg = dates[i]['avg'];// creates an array of avg that stores the average air pollution rate (array of numbers)
+
+                        if (avg<70) {
+                            text_html = `<li>${day} : ${avg}</li>`;
+                        }
+                        else {
+                            text_html = `<li class="bad">${day} : ${avg}</li>`;
+                        }
+
+                        $('#index-q1').append(text_html);
+
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Practising the combination of jQuery + Ajax</h1>
+    <hr>
+    <div class="question-box">
+        <h2>Using Seoul's OpenAPI (real-time air polluton rate)</h2>
+        <p>Please indicate the air pollution rate in all districts</p>
+        <p>Each time you click the update button, it should be erased and rewritten.</p>
+<!-- When I click this update button the page will not be refreshed but we will use AJAX to place a call(request)/GET request to the Seoul Api to get the updated data -->
+        <button onclick="q1()">Update!</button>
+        <ul id="index-q1">
+            <li>2021-02-24 : 32</li>
+            <li>2021-02-25 : 15</li>
+            <li>2021-02-26 : 57</li>
+            <li>2021-02-27 : 70</li>
+        </ul>
+    </div>
+</body>
+
+</html>
