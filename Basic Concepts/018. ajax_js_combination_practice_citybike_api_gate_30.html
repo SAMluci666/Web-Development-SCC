@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CityBike API AJAX Practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        div.question-box {
+            margin: 10px 0 20px 0;
+        }
+
+        table {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            padding: 10px;
+            border: 1px solid;
+        }
+        .urgent{
+            /* The row lines also turn red, how to only colour inside the row? */
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function q1() {
+            //to make the entry where the parked bike count is less than 5 red
+            let text_html = '';
+            $('#names-q1').empty();
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/citybike",
+                data: {},
+                success: function (response) {
+                    let row = response['getStationList']['row'];
+                    for (let i = 0; i < row.length; i++) {
+                        // console.log(row[i]);
+                        let bikeStandName = row[i]['stationName'];
+                        let bikeStandCount = row[i]['rackTotCnt'];
+                        let parkedBikeCount = row[i]['parkingBikeTotCnt'];
+                        
+                        //Code to make the entry where the parked bike count is less than 5 red
+                        if(parkedBikeCount<5){
+                            text_html = `
+                            <tr class="urgent">
+                                <td>${bikeStandName}</td>
+                                <td>${bikeStandCount}</td>
+                                <td>${parkedBikeCount}</td>
+                            </tr>`;
+                        }
+                        else{
+                            text_html = `
+                            <tr>
+                                <td>${bikeStandName}</td>
+                                <td>${bikeStandCount}</td>
+                                <td>${parkedBikeCount}</td>
+                            </tr>`;
+                        }
+                        $('#names-q1').append(text_html);
+                    }
+                }
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Practice jQuery + Ajax</h1>
+
+    <hr />
+
+    <div class="question-box">
+        <h2>2. Practice using the CityBike API</h2>
+        <p>Show me the current status of all bikes</p>
+        <p>Update the data below with the latest data everytime the "Update" button is clicked</p>
+        <button onclick="q1()">Update</button>
+        <table>
+            <thead>
+                <tr>
+                    <td>Bike Stand Location</td>
+                    <td>Bike Stand Count</td>
+                    <td>Parked Bike Count</td>
+                </tr>
+            </thead>
+            <tbody id="names-q1">
+                <tr>
+                    <td>102. Fun Fun St.</td>
+                    <td>22</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>103. Happy Sad Ave.</td>
+                    <td>16</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>104. Potato Salami Dr.</td>
+                    <td>16</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
