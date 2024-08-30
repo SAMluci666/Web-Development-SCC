@@ -19,7 +19,7 @@ This repository documents my learning progress as I advance through the Web Deve
 
 **Progress:**
 
-In Week 1, I focused on building a solid foundation in web development by learning the basics of HTML, CSS, Bootstrap, and JavaScript. The code and projects I worked on during this week are available in the [Week 1 folder](./Week_1).
+In Week 1, I focused on building a solid foundation in web development by learning the basics of HTML, CSS, Bootstrap, and JavaScript.
 
 ## How to Fork and Contribute
 
