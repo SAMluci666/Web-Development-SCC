@@ -115,17 +115,21 @@
         // %('cards-box').append(new_element);
 
         // Now, repeating the same but this time we will add a new card to the cards-box div using backticks ` `
-        // let new_title='Lucifer';
+        // let new_title=$('#movie_url').val();
+        // let new_rating = $('#inputGroupSelect01').val();
+            // let new_star = '⭐'.repeat(new_rating);
+        // let new_comment = $('#comment').val();
+        
         //         let new_element = `
         // <div class="col">
         //                 <div class="card h-100">
-        //                     <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+        //                     <img src="${movie_url}"
         //                         class="card-img-top" alt="...">
         //                     <div class="card-body">
         //                         <h5 class="card-title">${new_title}</h5>
         //                         <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, animi.</p>
-        //                         <p class="ratings">⭐⭐⭐</p>
-        //                         <p class="mycomments">This is a fake comment</p>
+        //                         <p class="ratings">${new_star}</p>
+        //                         <p class="mycomments">${comment}</p>
         //                     </div>
         //                 </div>
         //             </div>
@@ -205,8 +209,6 @@
                 $('#post-box').show();
             }
         }
-
-
     </script>
 </head>
 
@@ -237,7 +239,7 @@
             </select>
         </div>
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment"
                 style="height: 100px"></textarea>
             <label for="floatingTextarea2">comment</label>
         </div>
@@ -255,6 +257,17 @@
             <!-- the responsive .row-cols-* classes are used to set the no. of columns that best render your content and layout -->
             <!-- g-4 stands for gutter width, it refers to the padding between the columns in grid system -->
             
+             <!-- <div class="col">
+        <div class="card h-100">
+          <img src="https://m.media-amazon.com/images/I/81ai6zx6eXL._AC_SL1304_.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hello there</h5>
+            <p class="card-text">This is a description of the movie!</p>
+            <p>⭐⭐⭐</p>
+            <p class="mycomment">My rating!</p>
+          </div>
+        </div>
+      </div> -->
 
         </div>
     </div>
